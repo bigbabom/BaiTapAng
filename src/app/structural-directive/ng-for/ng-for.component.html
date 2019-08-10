@@ -1,0 +1,5 @@
+<h3 style="color: red">*ngFor</h3>
+
+<div *ngFor="let item of danhSachNhanVien; let stt = index">
+  {{ stt + 1 }}. {{ item.ten }} - {{ item.tuoi }}
+</div>

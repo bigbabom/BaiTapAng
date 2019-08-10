@@ -1,0 +1,10 @@
+<!--Begin item -->
+<div class="card">
+  <img class="card-img-top" [src]="phim.hinhAnh" alt="" />
+  <div class="card-body">
+    <h4 class="card-title">{{ phim.tenPhim }}</h4>
+    <p class="card-text">{{ phim.gia }}</p>
+    <button class="btn btn-primary" (click)="nutLike()">Like</button>
+  </div>
+</div>
+<!-- End item -->

@@ -1,0 +1,53 @@
+<h3 style="color: red">Bài tập thêm sản phảm</h3>
+
+<div style="background: grey">Quản lý mục sản phẩm</div>
+<div class="form-group">
+  <label for="msp">Mã sản phẩm</label>
+  <input type="text" class="form-control" #msp placeholder="MaSP" />
+</div>
+<div class="form-group">
+  <label for="tsp">Tên sản phẩm</label>
+  <input type="text" class="form-control" #tsp />
+</div>
+<div class="form-group">
+  <label for="gsp">Giá sản phẩm</label>
+  <input type="text" class="form-control" #gsp />
+</div>
+
+<button
+  class="btn btn-success"
+  (click)="themSanPham(msp.value, tsp.value, gsp.value)"
+>
+  Thêm sản phẩm
+</button>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>stt</th>
+        <th>mã sản phẩm</th>
+        <th>tên sản phẩm</th>
+        <th>giá sản phẩm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="danhSachSanPham && danhSachSanPham.length">
+        <tr
+          *ngFor="let sp of danhSachSanPham; let soThuTu = index"
+          [ngClass]="{ bg: soThuTu % 2 === 0 }"
+        >
+          <td>{{ soThuTu + 1 }}</td>
+          <td>{{ sp.maSanPham }}</td>
+          <td>{{ sp.tenSanPham }}</td>
+          <td>{{ sp.giaSanPham }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<!-- <ng-container *ngTemplateOutlet="template"></ng-container> -->
+
+<!-- <ng-temlate #template>
+  <div>CyberSoft</div>
+</ng-temlate> -->

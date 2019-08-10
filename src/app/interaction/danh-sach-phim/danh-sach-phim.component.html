@@ -1,0 +1,22 @@
+<p>danh-sach-phim works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col md-3" *ngFor="let item of danhSachPhim">
+      <app-item-phim
+        [phim]="item"
+        (eventPhim)="luotLike($event)"
+      ></app-item-phim>
+    </div>
+    <button class="btn btn-success m-3" (click)="viewChildren()">
+      View Children
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Danh sách Like</h3>
+      <p *ngFor="let item of danhSachLike">
+        {{ item.maPhim }} - {{ item.tenPhim }} - Số like = {{ item.soLike }}
+      </p>
+    </div>
+  </div>
+</div>

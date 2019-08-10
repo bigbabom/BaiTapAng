@@ -1,0 +1,58 @@
+<
+<h3 style="color: red">Bài tập thêm sản phảm</h3>
+
+<div style="background: grey">Quản lý mục sản phẩm</div>
+<div class="form-group">
+  <label for="msp">Mã sản phẩm</label>
+  <input type="text" class="form-control" #msp placeholder="MaSP" />
+</div>
+<div class="form-group">
+  <label for="tsp">Tên sản phẩm</label>
+  <input type="text" class="form-control" #tsp />
+</div>
+<div class="form-group">
+  <label for="gsp">Giá sản phẩm</label>
+  <input type="text" class="form-control" #gsp />
+</div>
+
+<button
+  class="btn btn-success"
+  (click)="themSanPham(msp.value, tsp.value, gsp.value)"
+>
+  Thêm sản phẩm
+</button>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>stt</th>
+        <th>mã sản phẩm</th>
+        <th>tên sản phẩm</th>
+        <th>giá sản phẩm</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="danhSachSanPham && danhSachSanPham.length">
+        <tr
+          *ngFor="let sp of danhSachSanPham; let soThuTu = index"
+          [ngClass]="{ background: soThuTu % 2 === 0 }"
+        >
+          <td>{{ soThuTu + 1 }}</td>
+          <td>{{ sp.MaSP }}</td>
+          <td>{{ sp.TenSP }}</td>
+          <td>{{ sp.GiaSP }}</td>
+          <td>
+            <button
+              class="btn btn-danger"
+              attr.data-masp="{{ sp.MaSP }}"
+              (click)="xoaSP($event)"
+            >
+              Xóa
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
